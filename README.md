@@ -28,5 +28,5 @@ exit 0
 ## Demo
 ![demo.png](https://github.com/jacksoncastilho/progress-bar/blob/main/demo.png)
 
-### Reference:
+## Reference:
 - https://medium.com/meninunes/bash-construindo-indicador-de-progresso-8de94c37683
