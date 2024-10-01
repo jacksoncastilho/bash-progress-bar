@@ -1,32 +1,55 @@
-# progress-bar
+# Bash Progress Bar
 
-```
-#!/bin/bash
+This project demonstrates how to create a simple progress bar using Bash. It shows a percentage-based progress bar that updates in real-time, perfect for long-running scripts. The project was inspired by [this article on Medium](https://medium.com/meninunes/bash-construindo-indicador-de-progresso-8de94c37683) by Meninunes.
 
-declare -r BAR_SIZE="##########"
-declare -r MAX_BAR_SIZE=${#BAR_SIZE}
+## How It Works
 
-range=$1
+The script takes a numeric argument representing the range (i.e., the total number of steps) and then simulates a process, updating the progress bar as it goes. The progress bar uses `#` characters to show progress and displays the percentage completed.
 
-for i in $(seq 1 $range); do
+## How to Use
 
-  perc=$(((i * 100) / $range))
-  percBar=$((perc * MAX_BAR_SIZE / 100))
+1. Clone this repository:
 
-  # Simulating a command
-  sleep 1
+   ```bash
+   git clone https://github.com/your-username/bash-progress-bar.git
+   cd bash-progress-bar
+   ```
 
-  echo -ne "\\r[${BAR_SIZE:0:percBar}] $perc %"
+2. Make the script executable:
 
-done
+   ```bash
+   chmod +x progressbar.sh
+   ```
 
-echo -e "\r"
+3. Run the script with a specified range (number of steps):
 
-exit 0
-```
+   ```bash
+   ./progressbar.sh 10
+   ```
+
+   Replace `10` with the number of steps you want.
 
 ## Demo
-![demo.png](https://github.com/jacksoncastilho/progress-bar/blob/main/demo.png)
 
-## Reference:
-- https://medium.com/meninunes/bash-construindo-indicador-de-progresso-8de94c37683
+Here’s a demonstration of the progress bar in action with a range of 10:
+
+```
+[##########] 100 %
+```
+
+The bar will start from 0% and update every second until it reaches 100%.
+
+## Customization
+
+You can change the following parameters in the script:
+
+- `BAR_SIZE`: Adjust this variable to change the length of the progress bar.
+- `sleep 1`: Modify the sleep duration to speed up or slow down the progress updates.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Reference
+
+- [Bash: Construindo Indicador de Progresso](https://medium.com/meninunes/bash-construindo-indicador-de-progresso-8de94c37683) by Meninunes
